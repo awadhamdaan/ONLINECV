@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar glass">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="#hero">AY</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#stats">Stats</a></li>
+            <li><a href="#target">Targets</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section id="hero" class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">Open to Opportunities</div>
+            <h1 class="hero-title">
+                <span class="greeting">👋 Hello, I'm</span>
+                <span class="name-gradient">{{ name }}</span>
+            </h1>
+            <div class="typing-wrapper">
+                <span class="typing-text" id="typing-text"></span>
+                <span class="cursor">|</span>
+            </div>
+            <p class="hero-description">{{ summary }}</p>
+            <div class="hero-buttons">
+                <a href="#experience" class="btn-primary">View My Work</a>
+                <a href="{{ url_for('static', filename='CV.pdf') }}" download class="btn-secondary">
+                    📄 Download CV
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="profile-wrapper floating">
+                <img src="{{ url_for('static', filename='images/cvpic.png') }}" alt="{{ name }}" class="profile-pic">
+                <div class="profile-ring"></div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="mouse"></div>
+    </div>
+</section>
+
+<!-- ===== STATISTICS ===== -->
+<section id="stats" class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item" data-count="{{ stats.experience }}">
+                <div class="stat-number"><span class="counter">20</span>+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item" data-count="{{ stats.countries }}">
+                <div class="stat-number"><span class="counter">4</span></div>
+                <div class="stat-label">Countries Worked</div>
+            </div>
+            <div class="stat-item" data-count="{{ stats.clients }}">
+                <div class="stat-number"><span class="counter">50</span>+</div>
+                <div class="stat-label">Clients Served</div>
+            </div>
+            <div class="stat-item" data-count="{{ stats.teams }}">
+                <div class="stat-number"><span class="counter">50</span>+</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TARGET POSITIONS ===== -->
+<section id="target" class="target-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Career Goals</span>
+            <h2 class="section-title">🎯 Target Positions</h2>
+            <p class="section-subtitle">Roles I'm passionate about and ready to excel in</p>
+        </div>
+        <div class="target-tags">
+            {% for position in target_positions %}
+                <span class="target-tag">{{ position }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="experience-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">My Journey</span>
+            <h2 class="section-title">💼 Professional Experience</h2>
+            <p class="section-subtitle">20+ years of international leadership across 4 countries</p>
+        </div>
+        <div class="timeline">
+            {% for job in experience %}
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>{{ job.title }}</h3>
+                                <div class="company-name">{{ job.company }}</div>
+                                <div class="company-location">📍 {{ job.location }}</div>
+                            </div>
+                            <span class="timeline-date">{{ job.period }}</span>
+                        </div>
+                        {% if job.about_company %}
+                            <div class="about-company">
+                                📌 {{ job.about_company }}
+                            </div>
+                        {% endif %}
+                        <ul class="achievement-list">
+                            {% for point in job.description %}
+                                <li>{{ point }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="skills-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Expertise</span>
+            <h2 class="section-title">🛠️ Core Competencies</h2>
+            <p class="section-subtitle">Technical skills and professional capabilities</p>
+        </div>
+        <div class="skills-grid">
+            {% for category, skill_list in skills.items() %}
+                <div class="skill-card glass">
+                    <h4>{{ category }}</h4>
+                    {% for skill in skill_list %}
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>{{ skill.name }}</span>
+                                <span>{{ skill.level }}%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: {{ skill.level }}%;"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== TECH BANNER ===== -->
+<section class="tech-banner">
+    <div class="tech-track">
+        {% for tech in technologies %}
+            <span class="tech-item">{{ tech }}</span>
+            <span class="tech-dot">•</span>
+        {% endfor %}
+        {% for tech in technologies %}
+            <span class="tech-item">{{ tech }}</span>
+            <span class="tech-dot">•</span>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education" class="education-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Learning</span>
+            <h2 class="section-title">🎓 Education</h2>
+            <p class="section-subtitle">Academic qualifications and professional development</p>
+        </div>
+        <div class="education-grid">
+            {% for edu in education %}
+                <div class="edu-card glass">
+                    <div class="edu-icon">🎓</div>
+                    <div class="edu-degree">{{ edu.degree }}</div>
+                    <div class="edu-institution">{{ edu.institution }}</div>
+                    <div class="edu-location">📍 {{ edu.location }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== LANGUAGES & PERSONAL ===== -->
+<section id="info" class="info-section">
+    <div class="container">
+        <div class="info-grid">
+            <div class="info-card glass">
+                <h3>🌐 Languages</h3>
+                {% for lang in languages %}
+                    <div class="lang-item">
+                        <span class="lang-name">{{ lang.name }}</span>
+                        <span class="lang-level">{{ lang.level }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="info-card glass">
+                <h3>👤 Personal Details</h3>
+                <div class="personal-item">
+                    <span class="label">Nationality</span>
+                    <span class="value">{{ personal.nationality }}</span>
+                </div>
+                <div class="personal-item">
+                    <span class="label">Date of Birth</span>
+                    <span class="value">{{ personal.dob }}</span>
+                </div>
+                <div class="personal-item">
+                    <span class="label">Visa Status</span>
+                    <span class="value">{{ personal.visa_status }}</span>
+                </div>
+                <div class="personal-item">
+                    <span class="label">Marital Status</span>
+                    <span class="value">{{ personal.marital_status }}</span>
+                </div>
+                <div class="personal-item">
+                    <span class="label">Driving License</span>
+                    <span class="value">{{ personal.driving_license }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT / FOOTER ===== -->
+<footer id="contact" class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>{{ name }}</h3>
+                <p>{{ title }}</p>
+            </div>
+            <div class="footer-links">
+                <a href="{{ links.linkedin }}" target="_blank" class="footer-link">🔗 LinkedIn</a>
+                <a href="{{ links.github }}" target="_blank" class="footer-link">🐙 GitHub</a>
+                <a href="{{ links.email }}" class="footer-link">✉️ Email</a>
+                <a href="{{ url_for('static', filename='CV.pdf') }}" download class="footer-link btn-download">📄 Download CV</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© {{ name }} • All Rights Reserved • Made with ❤️</p>
+        </div>
+    </div>
+</footer>
+{% endblock %}
