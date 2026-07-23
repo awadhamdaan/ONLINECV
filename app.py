@@ -138,7 +138,9 @@ def home():
             {'name': 'English', 'level': 'Fluent'},
             {'name': 'Arabic', 'level': 'Professional'},
             {'name': 'Urdu', 'level': 'Native'},
-            {'name': 'Portuguese', 'level': 'Intermediate'}
+            {'name': 'Portuguese', 'level': 'Intermediate'},
+            {'name': 'Pushto', 'level': 'Fluent'},
+            {'name': 'Punjabi', 'level': 'Fluent'},
         ],
 
         'personal': {
