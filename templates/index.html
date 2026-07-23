@@ -114,14 +114,39 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content glass">
-                        <div class="timeline-header">
-                            <div>
-                                <h3>{{ job.title }}</h3>
-                                <div class="company-name">{{ job.company }}</div>
-                                <div class="company-location">📍 {{ job.location }}</div>
-                            </div>
-                            <span class="timeline-date">{{ job.period }}</span>
+
+                <div class="timeline-header">
+                    <div>
+                        <h3>{{ job.title }}</h3>
+                        <div class="company-wrapper">
+                            {% if job.logo %}
+                                <img src="{{ url_for('static', filename='logos/' + job.logo) }}" alt="{{ job.company }}" class="company-logo">
+                            {% endif %}
+                            <span class="company-name">{{ job.company }}</span>
                         </div>
+                        <div class="company-location">📍 {{ job.location }}</div>
+                     </div>
+                    <span class="timeline-date">{{ job.period }}</span>
+
+
+                    <!--    this part is for water mark if not work remove                   -->
+
+
+                    <div class="timeline-content glass">
+                        <!-- Watermark Text -->
+                        <div class="watermark-logo">
+                            {{ job.company[:2].upper() }}
+                        </div>
+
+                        <div class="timeline-header">
+                            <!-- rest of the content -->
+                        </div>
+                            <!-- rest of the content -->
+                    </div>
+                        <!----------------------------------------------->
+
+                </div>
+
                         {% if job.about_company %}
                             <div class="about-company">
                                 📌 {{ job.about_company }}

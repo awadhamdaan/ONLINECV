@@ -1074,3 +1074,73 @@ body {
         font-size: 1.4rem;
     }
 }
+
+
+/* ===== COMPANY LOGOS ===== */
+.company-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.company-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    transition: transform 0.3s ease;
+}
+
+.company-logo:hover {
+    transform: scale(1.1);
+}
+
+/* ===== WATERMARK LOGO (Background) ===== */
+.timeline-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content .watermark-logo {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    opacity: 0.06;
+    font-size: 80px;
+    pointer-events: none;
+    z-index: 0;
+    color: #e94560;
+}
+
+.timeline-content .watermark-logo img {
+    width: 80px;
+    height: 80px;
+    opacity: 0.08;
+    filter: grayscale(100%);
+}
+
+/* Make sure content stays above watermark */
+.timeline-content > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/*      BELOW PART IS FOR   WATER MARKS  */
+
+.watermark-logo {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 100px;
+    font-weight: 900;
+    opacity: 0.04;
+    color: #e94560;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: 5px;
+}

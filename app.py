@@ -34,6 +34,7 @@ def home():
                 'about_company': "Lifecent Unipessoal is a Portugal-based parent company overseeing multiple business divisions, including LTMT Travels & Money Transfers, which provides travel management, visa consultancy, foreign exchange, and international money transfer services, and Uma Iniciativa, which specializes in workforce recruitment, labor supply, international hiring, work permit processing, and staffing solutions.",
                 'title': 'Operations Manager',
                 'company': 'Lifecent Unipessoal',
+                'logo': 'lifecent.png',
                 'location': 'Portugal',
                 'period': '2020 - Present',
                 'description': [
@@ -48,6 +49,7 @@ def home():
                 'about_company': "Leading UAE-based travel and business services organization operating a nationwide branch network.",
                 'title': 'Operations & Customer Experience Manager',
                 'company': 'Sharjah National Travel & Tourism',
+                'logo': 'sntt.png',
                 'location': 'Kingdom of Saudi Arabia',
                 'period': '2017 - 2019',
                 'description': [
@@ -61,6 +63,7 @@ def home():
                 'about_company': "Leading UAE-based travel and business services organization operating a nationwide branch network.",
                 'title': 'Assistant Manager - Finance, Operations',
                 'company': 'Sharjah National Travel & Tourism',
+                'logo': 'sntt.png',
                 'location': 'Khorfakkan, UAE',
                 'period': '2011 - 2016',
                 'description': [
@@ -74,6 +77,7 @@ def home():
                 'about_company': "Leading UAE-based travel and business services organization operating a nationwide branch network.",
                 'title': 'Branch Accountant',
                 'company': 'Sharjah National Travel & Tourism',
+                'logo': 'sntt.png',
                 'location': 'Khorfakkan, UAE',
                 'period': '2008 - 2011',
                 'description': [
@@ -87,6 +91,7 @@ def home():
                 'about_company': "Marhaba Aviation Pvt. Ltd. (General Sales Agent for Gulf Air) representing Gulf Air in Pakistan, providing airline sales, financial administration, and commercial support services.",
                 'title': 'Finance Supervisor',
                 'company': 'Marhaba Aviation Pvt. Ltd.',
+                'logo': 'marhaba.png',
                 'location': 'Peshawar, Pakistan',
                 'period': '2003 - 2008',
                 'description': [
@@ -138,7 +143,7 @@ def home():
             {'name': 'English', 'level': 'Fluent'},
             {'name': 'Arabic', 'level': 'Professional'},
             {'name': 'Urdu', 'level': 'Native'},
-            {'name': 'Portuguese', 'level': 'Intermediate'}
+            {'name': 'Portuguese', 'level': 'Intermediate'},
         ],
 
         'personal': {
