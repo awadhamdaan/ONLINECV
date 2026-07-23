@@ -29,7 +29,7 @@
         <div class="hero-content">
             <div class="hero-badge">Open to Opportunities</div>
             <h1 class="hero-title">
-                <span class="greeting">👋 Hello, I'm</span>
+                <span class="greeting">👋 Welcome to my Page </span>
                 <span class="name-gradient">{{ name }}</span>
             </h1>
             <div class="typing-wrapper">
@@ -227,6 +227,11 @@
                     <span class="value">{{ personal.visa_status }}</span>
                 </div>
                 <div class="personal-item">
+                    <span class="label">Country of Residence </span>
+                    <span class="value">{{ personal.country_of_residence }}</span>
+                </div>
+
+                <div class="personal-item">
                     <span class="label">Marital Status</span>
                     <span class="value">{{ personal.marital_status }}</span>
                 </div>
@@ -234,6 +239,12 @@
                     <span class="label">Driving License</span>
                     <span class="value">{{ personal.driving_license }}</span>
                 </div>
+
+                <div class="personal-item">
+                    <span class="label">Contact Number</span>
+                    <span class="value">{{ personal.contact_number }}</span>
+                </div>
+
             </div>
         </div>
     </div>

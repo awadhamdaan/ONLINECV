@@ -144,9 +144,11 @@ def home():
         'personal': {
             'nationality': 'Pakistan',
             'dob': '04 Jul 1982',
+            'country_of_residence': 'Portugal',
             'visa_status': 'Residence Card Holder',
             'marital_status': 'Married',
-            'driving_license': 'Light Vehicle, Motor Bike'
+            'driving_license': 'Light Vehicle, Motor Bike',
+            'contact_number': '+351-920008127',
         },
 
         'links': {
