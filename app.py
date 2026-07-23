@@ -148,7 +148,7 @@ def home():
             'country_of_residence': 'Portugal',
             'marital_status': 'Married',
             'driving_license': 'Light Vehicle, Motor Bike',
-            'contact_number': '+351 9XX XXX XXX'
+            'contact_number': '+351-920008127'
         },
 
         'links': {
