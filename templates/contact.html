@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar glass">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="{{ url_for('home') }}">AY</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="{{ url_for('home') }}#hero">Home</a></li>
+            <li><a href="{{ url_for('home') }}#stats">Stats</a></li>
+            <li><a href="{{ url_for('home') }}#target">Targets</a></li>
+            <li><a href="{{ url_for('home') }}#experience">Experience</a></li>
+            <li><a href="{{ url_for('home') }}#skills">Skills</a></li>
+            <li><a href="{{ url_for('home') }}#education">Education</a></li>
+            <li><a href="/contact" class="active">Message Me</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section id="contact" class="contact-section">
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-badge">💬 Get In Touch</div>
+                <h1 class="contact-title">Let's Connect!</h1>
+                <p class="contact-description">
+                    I'm always open to new opportunities, collaborations, and conversations. 
+                    Feel free to reach out and I'll get back to you as soon as possible.
+                </p>
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <span class="icon">📧</span>
+                        <span>awad.yasin@email.com</span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <span class="icon">📍</span>
+                        <span>Portugal</span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <span class="icon">🔗</span>
+                        <span>Available for opportunities</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper glass">
+                <h2>Send Me a Message</h2>
+                
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="flash-message {{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <form action="{{ url_for('contact') }}" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        📤 Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>{{ name }}</h3>
+                <p>{{ title }}</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/feed/" target="_blank" class="footer-link">🔗 LinkedIn</a>
+                <a href="https://github.com/your-profile" target="_blank" class="footer-link">🐙 GitHub</a>
+                <a href="mailto:your.email@example.com" class="footer-link">✉️ Email</a>
+                <a href="{{ url_for('static', filename='CV.pdf') }}" download class="footer-link btn-download">📄 Download CV</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© {{ name }} • All Rights Reserved • Made with ❤️</p>
+        </div>
+    </div>
+</footer>
+{% endblock %}

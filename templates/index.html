@@ -14,7 +14,7 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/contact">Message Me</a></li>
         </ul>
         <div class="nav-toggle">
             <span></span><span></span><span></span>
@@ -37,10 +37,14 @@
                 <span class="cursor">|</span>
             </div>
             <p class="hero-description">{{ summary }}</p>
+
             <div class="hero-buttons">
                 <a href="#experience" class="btn-primary">View My Work</a>
                 <a href="{{ url_for('static', filename='CV.pdf') }}" download class="btn-secondary">
                     📄 Download CV
+                </a>
+                <a href="/contact" class="btn-primary" style="background: linear-gradient(135deg, #00b894, #00a381); box-shadow: 0 4px 20px rgba(0, 184, 148, 0.3);">
+                    💬 Message Me
                 </a>
             </div>
         </div>
@@ -227,10 +231,9 @@
                     <span class="value">{{ personal.visa_status }}</span>
                 </div>
                 <div class="personal-item">
-                    <span class="label">Country of Residence </span>
+                    <span class="label">Country of Residence</span>
                     <span class="value">{{ personal.country_of_residence }}</span>
                 </div>
-
                 <div class="personal-item">
                     <span class="label">Marital Status</span>
                     <span class="value">{{ personal.marital_status }}</span>
@@ -239,12 +242,10 @@
                     <span class="label">Driving License</span>
                     <span class="value">{{ personal.driving_license }}</span>
                 </div>
-
                 <div class="personal-item">
                     <span class="label">Contact Number</span>
                     <span class="value">{{ personal.contact_number }}</span>
                 </div>
-
             </div>
         </div>
     </div>
